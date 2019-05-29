@@ -1,5 +1,25 @@
 <!--index.wxml-->
 <view class="container">
+
+
+  <block wx:for="{{goodsList}}" wx:for-item="goods">
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+      <block wx:for="{{goods.carImages}}" wx:for-item="image">
+        <swiper-item>
+          <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view>{{goods.band}}</view>
+    <view>￥{{goods.price}}w</view>
+
+
+
+
+  </block>
+
+
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -7,7 +27,6 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+
 </view>
