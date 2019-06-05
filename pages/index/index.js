@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 const goodsApi = require('../../api/goodsApi.js');
+const fileUtil = require('../../utils/fileUtil.js')
 
 Page({
   data: {
@@ -28,7 +29,8 @@ Page({
       latitude: 23.099994,
       longitude: 113.304520,
       iconPath: '/assets/image/location.png'
-    }]
+    }],
+		imageArray: [],
   },
   //事件处理函数
   bindViewTap: function() {
@@ -94,7 +96,8 @@ Page({
     apiObj.fail = function(res) {
       console.log(res);
     }
-    wx.request(apiObj);
+		wx.request(apiObj);
+		
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -103,5 +106,40 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+	onChooseImage: function () {
+		let self = this;
+		wx.chooseImage({
+			count: 9,
+			sizeType: ["compressed"],
+			sourceType: ["album", "camera"],
+			success: function (e) {
+				let images = e.tempFiles;
+				for (let i = 0; i < images.length; i++ ) {
+					let image = images[i];
+					self.save(image.path);
+				}
+				self.setData({
+					imageArray: images,
+				});
+			}
+
+		});
+	},
+
+	/**
+	 * 压缩
+	 */
+	compress() {
+		let _this = this;
+		wx.chooseImage({
+			count: 1,
+			sizeType: ['compressed'],
+			success: function (photo) {
+				fileUtil.compress(photo.tempFilePaths[0] ,'photo_canvas', _this);
+			}
+		})
+		
+	}
+
 })
