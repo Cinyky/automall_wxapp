@@ -28,8 +28,13 @@
       markers="{{markers}}"
       covers="{{covers}}"
       show-location
+			enable-zoom=false
+			enable-scroll=false
+			bindtap="map"
+			show-compass
     />
 		<button bindtap="map" type="primary">导航</button>
+
 
 
   <view class="userinfo">
