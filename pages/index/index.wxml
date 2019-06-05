@@ -1,56 +1,50 @@
 <!--index.wxml-->
+<official-account class="follow_wechat">
+</official-account>
+<!--template-->
+<import src="../../tpl/template-goods/template-goods.wxml" />
+<!--/template-->
+
+
 <view class="container">
+  <!--轮播图-->
+  <template is="goodsList_index" data="{{goodsList,imageUrl}}"></template>
 
 
-  <block wx:for="{{goodsList}}" wx:for-item="goods">
-    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-      <block wx:for="{{goods.carImages}}" wx:for-item="image">
-        <swiper-item>
-          <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
-        </swiper-item>
-      </block>
-    </swiper>
-
-    <view>{{goods.band}}</view>
-    <view>￥{{goods.price}}w</view>
+  
 
 
+  <map
+    id="myMap"
+    style="width: 100%; height: 300px;"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    markers="{{markers}}"
+    covers="{{covers}}"
+    show-location
+    enable-zoom=false
+    enable-scroll=false
+    bindtap="map"
+    show-compass
+  />
+  <button bindtap='map' type="primary">导航</button>
 
+  <button bindtap='compress'>上传图片</button>
+  <canvas canvas-id='photo_canvas' style='width:{{canvas_w}}px;height:{{canvas_h}}px' class='myCanvas'></canvas>
 
+  <block wx:for="{{imageArray}}" wx:for-item="image">
+    <image src="{{image.path}}"  mode="scaleToFill"></image>
+    <text>{{image.size/ 1024}}KB</text>
   </block>
 
 
-<map
-  id="myMap"
-  style="width: 100%; height: 300px;"
-  latitude="{{latitude}}"
-  longitude="{{longitude}}"
-  markers="{{markers}}"
-  covers="{{covers}}"
-  show-location
-  enable-zoom=false
-  enable-scroll=false
-  bindtap="map"
-  show-compass
-/>
-<button bindtap='map' type="primary">导航</button>
-
-<button bindtap='compress'>上传图片</button>
-<canvas canvas-id='photo_canvas' style='width:{{canvas_w}}px;height:{{canvas_h}}px' class='myCanvas'></canvas>
-
-<block wx:for="{{imageArray}}" wx:for-item="image">
-  <image src="{{image.path}}"  mode="scaleToFill"></image>
-  <text>{{image.size/ 1024}}KB</text>
-</block>
-
-
-<view class="userinfo">
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  <block wx:else>
-    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </block>
-</view>
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
 
 
 </view>

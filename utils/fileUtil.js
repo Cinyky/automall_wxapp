@@ -1,3 +1,6 @@
+/**
+ * 压缩插件
+ */
 const DEFALUT_WIDTH = 344;
 const compress = (file, canvasId, _this, originalSize = false) => {
   wx.getImageInfo({
@@ -36,7 +39,11 @@ const compress = (file, canvasId, _this, originalSize = false) => {
   })
 }
 
-const saveFile = (file) => {
+/**
+ * 文件保存
+ * @param {文件} filePath 
+ */
+const saveFile = (filePath) => {
   wx.showLoading({ mask: true, title: '保存中...' })
 		wx.getSetting({
 			success: (res) => {
@@ -45,7 +52,7 @@ const saveFile = (file) => {
 					wx.authorize({
 						scope: 'scope.writePhotosAlbum',
 						success: () => {
-							saveFile(file);
+							saveFile(filePath);
 						},
 						fail: wx.hideLoading
 					})
@@ -61,7 +68,7 @@ const saveFile = (file) => {
 								wx.openSetting({
 									success: (settingRes) => {
 										if (settingRes.authSetting['scope.writePhotosAlbum']) {
-											saveFile(file);
+											saveFile(filePath);
 										}
 									}
 								})
@@ -70,7 +77,7 @@ const saveFile = (file) => {
 					})
 				} else {
 					wx.saveImageToPhotosAlbum({
-            filePath: file,
+            filePath: filePath,
             success(res) {
               console.log("保存图片成功")
               console.log(res)

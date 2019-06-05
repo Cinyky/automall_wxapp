@@ -1,0 +1,47 @@
+<template name="goodsList_index">
+    <block wx:for="{{goodsList}}" wx:for-item="goods">
+        <view>{{goods.title}}</view>
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+            <block wx:for="{{goods.carImages}}" wx:for-item="image">
+                <swiper-item>
+                <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view>{{goods.band}}</view>
+        <view>￥{{goods.price}} w</view>
+    </block>
+</template>
+
+<template name="goodsList_favor">
+    <block wx:for="{{goodsList}}" wx:for-item="goods">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+        <block wx:for="{{goods.carImages}}" wx:for-item="image">
+            <swiper-item>
+            <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
+            </swiper-item>
+        </block>
+        </swiper>
+
+        <view>{{goods.band}}</view>
+        <view>￥{{goods.price}}w</view>
+    </block>
+</template>
+
+
+<template name="goodsList_history">
+    <block wx:for="{{goodsList}}" wx:for-item="goods">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+        <block wx:for="{{goods.carImages}}" wx:for-item="image">
+            <swiper-item>
+            <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
+            </swiper-item>
+        </block>
+        </swiper>
+
+        <view>{{goods.band}}</view>
+        <view>￥{{goods.price}}w</view>
+    </block>
+</template>
+
