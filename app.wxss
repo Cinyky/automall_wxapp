@@ -1,4 +1,9 @@
 /**app.wxss**/
+
+/*页面重置样式 start*/
+page {background-color: #f8f8f8;font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;}
+/*页面重置样式 start*/
+
 .container {
   height: 100%;
   display: flex;
@@ -8,3 +13,5 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+

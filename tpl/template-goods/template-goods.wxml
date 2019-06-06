@@ -1,17 +1,19 @@
+<!--首页的商品-->
 <template name="goodsList_index">
-    <block wx:for="{{goodsList}}" wx:for-item="goods">
-        <view>{{goods.title}}</view>
-        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-            <block wx:for="{{goods.carImages}}" wx:for-item="image">
-                <swiper-item>
-                <image src="{{imageUrl}}{{image.imageId}}" class="slide-image" mode="scaleToFill"></image>
-                </swiper-item>
-            </block>
-        </swiper>
+<scroll-view class="m-scrollBox" scroll-y="true" bindscrolltolower="scrollbottom" style="padding-bottom: 100rpx;">
+    <block wx:if="{{goodsList.length > 0}}">
+        <view class="m-goods-item" wx:for="{{goodsList}}" wx:for-item="goods">
+            <image src="{{imageUrl}}{{goods.carImages[0].imageId}}" mode="scaleToFill"></image>
+            <view class="goods-item-right">
+                <view>{{goods.title}}</view>
+                <view>{{goods.band}}</view>
+                <view>￥{{goods.price}} w</view>
 
-        <view>{{goods.band}}</view>
-        <view>￥{{goods.price}} w</view>
+            </view>
+           
+        </view>
     </block>
+</scroll-view>
 </template>
 
 <template name="goodsList_favor">
