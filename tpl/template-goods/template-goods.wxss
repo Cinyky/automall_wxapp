@@ -26,19 +26,23 @@
     background: #fff;
 }
 
-.m-goods-item image {
-    width: 250 rpx;
-    height: 200 rpx;
-}
 
 .goods-item-right {
     position: absolute;
-    left: 250 rpx;
-    top: 0;
-    width: 420 rpx;
-    height: 180 rpx;
-    padding: 10 rpx 20 rpx;
-    font-size: 22 rpx;
+    left: 250rpx;
+    top:0;
+    width:420rpx;
+    /* height: 180rpx;  */
+    padding: 10rpx 20rpx;
+    font-size: 22rpx;
     color: gray;
     background-color: white;
 }
+
+.item-title{line-height: 40rpx;font-size: 28rpx;height: 80rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
+.item-middle{height: 50rpx;line-height: 50rpx;font-size: 24rpx;}
+
+.item-usenow{font-size: 24rpx;border:1px solid #DB384C;float: right;color: #DB384C;border-radius: 40rpx;padding: 0 15rpx;position: relative;top: -8rpx;line-height: 40rpx;}.item-desc{height: 50rpx;line-height: 50rpx;margin-top: 5rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;}
+
+
+.huodongTime{line-height: 40rpx;font-size: 25rpx;height: 80rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}

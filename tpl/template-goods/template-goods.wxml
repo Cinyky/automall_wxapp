@@ -3,14 +3,15 @@
     <scroll-view bindscrolltolower="scrollbottom" class="m-scrollBox" scroll-y="true" style="padding-bottom: 100rpx;">
         <block wx:if="{{goodsList.length > 0}}">
             <view class="m-goods-item" wx:for="{{goodsList}}" wx:for-item="goods">
-                <image mode="scaleToFill" src="{{imageUrl}}{{goods.carImages[0].imageId}}"></image>
+                <image mode="scaleToFill" src="{{imageUrl}}{{goods.carImages[0].imageId}}" style="width: 250rpx;height: 200rpx;"></image>
                 <view class="goods-item-right">
-                    <view>{{goods.title}}</view>
-                    <view>{{goods.band}}</view>
-                    <view>￥{{goods.price}} w</view>
-
+                    <view class="item-title">{{goods.title}}</view>
+                    <view class="item-middle">
+                        <text>{{goods.distance}} KM</text>
+                        <text>{{goods.config}} </text>
+                    </view>
                 </view>
-
+                <lable class="item-time">￥{{goods.price}} w</lable>   <text class="huodongTime">活动时间：{{goods.regTime}}</text>
             </view>
         </block>
     </scroll-view>
