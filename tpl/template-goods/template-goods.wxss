@@ -1,44 +1,44 @@
 .swiper {
-    height: 600rpx;
+    height: 600 rpx;
     width: 100%;
-  }
-  
+}
+
 .swiper image {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .m-scrollBox {
-  padding: 80rpx 10rpx 100rpx 10rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
+    padding: 80 rpx 10 rpx 100 rpx 10 rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
 }
 
 .m-goods-item {
-  margin: 10rpx 10rpx 20rpx;
-  position: relative;
-  width: 100%;
-  height: 190rpx;
-  background: #fff;
+    margin: 10 rpx 10 rpx 20 rpx;
+    position: relative;
+    width: 100%;
+    height: 190 rpx;
+    background: #fff;
 }
 
 .m-goods-item image {
-  width: 250rpx;
-  height: 200rpx;
+    width: 250 rpx;
+    height: 200 rpx;
 }
 
 .goods-item-right {
-  position: absolute;
-  left: 250rpx;
-  top: 0;
-  width: 420rpx;
-  height: 180rpx;
-  padding: 10rpx 20rpx;
-  font-size: 22rpx;
-  color: gray;
-  background-color: white;
+    position: absolute;
+    left: 250 rpx;
+    top: 0;
+    width: 420 rpx;
+    height: 180 rpx;
+    padding: 10 rpx 20 rpx;
+    font-size: 22 rpx;
+    color: gray;
+    background-color: white;
 }

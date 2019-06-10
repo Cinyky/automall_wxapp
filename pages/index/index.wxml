@@ -2,14 +2,14 @@
 <official-account class="follow_wechat">
 </official-account>
 <!--template-->
-<import src="../../tpl/template-goods/template-goods.wxml" />
+<import src="../../tpl/template-goods/template-goods.wxml"/>
 <!--/template-->
 
 
 <view class="container">
-  <!--轮播图-->
+    <!--轮播图-->
 
-  <!--商品列表-->
-  <template is="goodsList_index" data="{{goodsList,imageUrl}}"></template>
-  
+    <!--商品列表-->
+    <template data="{{goodsList,imageUrl}}" is="goodsList_index"></template>
+
 </view>
