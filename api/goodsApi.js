@@ -10,7 +10,7 @@ module.exports = {
         method: 'GET'
     },
     goodsDetail: {
-        url: cf.config.configUrl + "goods/list",
+        url: cf.config.configUrl + "goods/detail",
         data: {},
         method: 'GET'
     },

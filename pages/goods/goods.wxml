@@ -1,3 +1,11 @@
 <!--pages/goods/goods.wxml-->
 <text>pages/goods/goods.wxml</text>
 <text>{{goodsId}}</text>
+<button open-type="share">分享</button>
+
+<view class='container'>
+  页面主要内容
+</view>
+
+<!-- 回到首页(分享的时候显示) -->
+<image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='/assets/image/home_index.png' lazy-load></image>

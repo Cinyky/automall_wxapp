@@ -11,16 +11,36 @@ Page({
   data: {
     good: null,
     goodsId: "",
+    isshare: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this;
-    _this.setData({
-      goodsId : options.goodsId
-    });
+    console.log(options);
+    let tmpGoodsId;
+    if (options) {
+      tmpGoodsId = options.goodsId;
+      this.setData({
+        goodsId: tmpGoodsId
+      });
+      if (options.isshare) {
+        this.setData({
+          isshare: options.isshare
+        });
+      }
+    }
+    let good = app.globalData.goodsMap[tmpGoodsId];
+    if (good) {
+      this.setData({
+        good: good
+      });
+    } else {
+      this.getGoodsDetail();
+    }
+    
+   
   },
 
   /**
@@ -69,32 +89,25 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let t = this;
-    let path = `/pages/goods/goods?goodsId=${t.data.goodsId}`;
+    let path = `/pages/goods/goods?goodsId=${this.data.goodsId}&isshare=1`;
+    console.log(path);
     return {
       title: cf.config.appName,
-      path: path,
-      success() {
-        wx.showModal({
-          title:'提示',
-          content:'分享成功'
-        });
-      }
+      path: path
     };
   },
   /**
    * 获取商品信息
    */
-  getGoodsDetail: () => {
-    let self = this;
+  getGoodsDetail: function () {
+    let _this = this;
     let apiObj = goodsApi.goodsDetail;
+    apiObj.url =  `${apiObj.url}/${_this.data.goodsId}`
     apiObj.success = function (res) {
         console.log(res);
         let data = res.data;
-        
-        self.setData({
+        _this.setData({
             goods: data,
-           
         })
         
     };
@@ -102,5 +115,14 @@ Page({
         console.log(res);
     }
     wx.request(apiObj);
-},
+  },
+ 
+  /**
+  * 回到首页(分享的时候)
+  */
+  backHome: function () {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  } 
 })

@@ -92,7 +92,7 @@ Page({
                 goodsList: goods || [],
                 images: tmpImages || []
             })
-            app.globalData.goodsList = goodsMap || {};
+            app.globalData.goodsMap = goodsMap || {};
             
         };
         apiObj.fail = function (res) {
@@ -152,7 +152,7 @@ Page({
     goodsDetail(e) {
         let goodsId = e.currentTarget.dataset.goods;
         wx.navigateTo({
-            url: `/pages/goods/goods?goodsId=${goodsId}`
+            url: `/pages/goods/goods?goodsId=${goodsId}&ishare=1`
         });
     }
 
