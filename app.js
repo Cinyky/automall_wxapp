@@ -46,6 +46,7 @@ App({
     globalData: {
         userInfo: null,
         windowWidth: 0,
-        windowHeight: 0
+        windowHeight: 0,
+        goodsMap: {}
     }
 })

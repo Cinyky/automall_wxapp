@@ -12,8 +12,8 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        goodsList: [],
         imageUrl: goodsApi.imageUrl,
+        goodsList: [],
         images: [],
         imageSize: [],
         imageArray: [],
@@ -65,20 +65,21 @@ Page({
         let apiObj = goodsApi.goodsList;
         apiObj.success = function (res) {
             console.log(res);
-            let data = res.data;
+            let goods = res.data;
             let totalNum = 0;
             let tmpImages = [];
-            for (let idx = 0; idx < data.length; idx++) {
-                const goods = data[idx];
+            let goodsMap = {};
+            for (let good of goods) {
+                goodsMap[good.id] = good;
                 if (totalNum >= TOTAL_NUM) {
-                    break;
+                    continue;
                 }
                 let num = 0;
-                for (let image of goods.carImages) {
+                for (let image of good.carImages) {
                     if (num >= EACH_NUM || totalNum >= TOTAL_NUM) {
                         break;
                     }
-                    image.title = goods.title;
+                    image.title = good.title;
                     tmpImages.push(image);
                     num--;
                     totalNum++;
@@ -88,9 +89,10 @@ Page({
                 return (0.5 - Math.random());
             })
             self.setData({
-                goodsList: data || [],
+                goodsList: goods || [],
                 images: tmpImages || []
             })
+            app.globalData.goodsList = goodsMap || {};
             
         };
         apiObj.fail = function (res) {
@@ -146,6 +148,12 @@ Page({
     },
     adaptImageSize(idx, size) {
         this.data.imageSize[idx] = size;
+    },
+    goodsDetail(e) {
+        let goodsId = e.currentTarget.dataset.goods;
+        wx.navigateTo({
+            url: `/pages/goods/goods?goodsId=${goodsId}`
+        });
     }
 
 })

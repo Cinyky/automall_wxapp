@@ -2,7 +2,7 @@
 <template name="goodsList_index">
     <scroll-view bindscrolltolower="scrollbottom" class="m-scrollBox" scroll-y="true" style="padding-bottom: 100rpx;">
         <block wx:if="{{goodsList.length > 0}}">
-            <view class="m-goods-item" wx:for="{{goodsList}}" wx:for-item="goods">
+            <view class="m-goods-item" wx:for="{{goodsList}}" wx:for-item="goods" data-goods="{{goods.id}}" bindtap="goodsDetail">
                 <image mode="scaleToFill" src="{{imageUrl}}{{goods.carImages[0].imageId}}" style="width: 250rpx;height: 200rpx;"></image>
                 <view class="goods-item-right">
                     <view class="item-title">{{goods.title}}</view>
