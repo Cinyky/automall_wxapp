@@ -33,8 +33,19 @@ App({
                 }
             }
         })
+
+        wx.getSystemInfo({
+            success: (res) => {
+                this.globalData.windowWidth = res.windowWidth;
+                this.globalData.windowHeight = res.windowHeight;
+            }
+        })
+
+
     },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        windowWidth: 0,
+        windowHeight: 0
     }
 })

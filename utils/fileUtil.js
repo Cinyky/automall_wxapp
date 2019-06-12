@@ -1,12 +1,14 @@
 /**
  * 压缩插件
  */
+
+const app = getApp()
 const DEFALUT_WIDTH = 344;
 const compress = (file, canvasId, _this, originalSize = false) => {
     wx.getImageInfo({
         src: file,
         success: function (res) {
-            var ctx = wx.createCanvasContext(canvasId)
+            let ctx = wx.createCanvasContext(canvasId)
             //设置canvas尺寸
             let originalWidth = res.width;
             let originalHeight = res.height;
@@ -93,7 +95,35 @@ const saveFile = (filePath) => {
     });
 }
 
+/**
+ * 图片视觉宽高计算函数区 
+ **/
+const wxParseImgLoad = (e, target) => {
+    let that = target;
+    //因为无法获取view宽度 需要自定义padding进行计算，稍后处理
+    let recal = wxAutoImageCal(e.detail.width, e.detail.height);
+    that.adaptImageSize(e.currentTarget.dataset.idx, recal);
+  }
+  
+  // 计算视觉优先的图片宽高
+const wxAutoImageCal = (originalWidth, originalHeight ) => {
+    //获取图片的原始长宽
+    let windowWidth = app.globalData.windowWidth, windowHeight = app.globalData.windowHeight;
+    let autoWidth = 0, autoHeight = 0;
+    let results = {};
+    //判断按照那种方式进行缩放
+    console.log("windowWidth" + windowWidth);
+    autoWidth = windowWidth;
+    console.log("autoWidth" + autoWidth);
+    autoHeight = (autoWidth * originalHeight) / originalWidth;
+    console.log("autoHeight" + autoHeight);
+    results.imageWidth = autoWidth;
+    results.imageheight = autoHeight;
+    return results;
+  }
+
 module.exports = {
     compress: compress,
-    saveFile: saveFile
+    saveFile: saveFile,
+    wxParseImgLoad: wxParseImgLoad
 }

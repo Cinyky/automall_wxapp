@@ -8,6 +8,9 @@
 
 <view class="container">
     <!--轮播图-->
+    <template data="{{images,windowWidth,imageUrl}}" is="swiper_index"></template>
+    
+    <text> \n </text>
 
     <!--商品列表-->
     <template data="{{goodsList,imageUrl}}" is="goodsList_index"></template>

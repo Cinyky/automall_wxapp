@@ -3,6 +3,8 @@
 const app = getApp()
 const goodsApi = require('../../api/goodsApi.js');
 const fileUtil = require('../../utils/fileUtil.js')
+const TOTAL_NUM = 10;
+const EACH_NUM = 2;
 
 Page({
     data: {
@@ -12,25 +14,10 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         goodsList: [],
         imageUrl: goodsApi.imageUrl,
-        latitude: 23.099994,
-        longitude: 113.324520,
-        markers: [{
-            id: 1,
-            latitude: 23.099994,
-            longitude: 113.324520,
-            name: 'T.I.T 创意园',
-            iconPath: '/assets/image/location.png'
-        }],
-        covers: [{
-            latitude: 23.099994,
-            longitude: 113.344520,
-            iconPath: '/assets/image/location.png'
-        }, {
-            latitude: 23.099994,
-            longitude: 113.304520,
-            iconPath: '/assets/image/location.png'
-        }],
+        images: [],
+        imageSize: [],
         imageArray: [],
+        windowWidth: app.globalData.windowWidth
     },
     //事件处理函数
     bindViewTap: function () {
@@ -38,26 +25,10 @@ Page({
             url: '../logs/logs'
         })
     },
-    onReady: function (e) {
-        this.mapCtx = wx.createMapContext('myMap')
-    },
-    map: function () {
-        let self = this;
-        wx.getLocation({
-            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-            success: function (res) {
-                var latitude = res.latitude
-                var longitude = res.longitude
-                wx.openLocation({
-                    latitude: self.data.latitude,
-                    longitude: self.data.longitude,
-                    scale: 28
-                })
-            }
-        });
-    },
+  
 
     onLoad: function () {
+        // 获取用户信息
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
@@ -84,21 +55,49 @@ Page({
                 }
             })
         }
+
+        this.getGoodsList();
+        
+
+    },
+    getGoodsList() {
         let self = this;
         let apiObj = goodsApi.goodsList;
         apiObj.success = function (res) {
             console.log(res);
             let data = res.data;
-            self.setData({
-                goodsList: data || []
+            let totalNum = 0;
+            let tmpImages = [];
+            for (let idx = 0; idx < data.length; idx++) {
+                const goods = data[idx];
+                if (totalNum >= TOTAL_NUM) {
+                    break;
+                }
+                let num = 0;
+                for (let image of goods.carImages) {
+                    if (num >= EACH_NUM || totalNum >= TOTAL_NUM) {
+                        break;
+                    }
+                    tmpImages.push(image);
+                    num--;
+                    totalNum++;
+                }
+            }
+            tmpImages.sort(function() {
+                return (0.5 - Math.random());
             })
+            self.setData({
+                goodsList: data || [],
+                images: tmpImages || []
+            })
+            
         };
         apiObj.fail = function (res) {
             console.log(res);
         }
         wx.request(apiObj);
-
     },
+
     getUserInfo: function (e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
@@ -140,6 +139,12 @@ Page({
             }
         })
 
+    },
+    wxParseImgLoad(e) {
+        fileUtil.wxParseImgLoad(e,this);
+    },
+    adaptImageSize(idx, size) {
+        this.data.imageSize[idx] = size;
     }
 
 })

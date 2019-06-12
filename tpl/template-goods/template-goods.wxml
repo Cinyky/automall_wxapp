@@ -9,28 +9,28 @@
                     <view class="item-middle">
                         <text>{{goods.distance}} KM</text>
                         <text>{{goods.config}} </text>
+                        <text class="regTime">上牌时间：{{goods.regTime}}</text>
                     </view>
                 </view>
-                <lable class="item-time">￥{{goods.price}} w</lable>   <text class="huodongTime">活动时间：{{goods.regTime}}</text>
+                <lable class="item-time">￥{{goods.price}} w</lable>   
             </view>
         </block>
     </scroll-view>
 </template>
 
-<template name="goodsList_favor">
-    <block wx:for="{{goodsList}}" wx:for-item="goods">
-        <view>{{goods.title}}</view>
+<template name="swiper_index">
+    <block wx:if="{{images.length > 0}}">
         <swiper autoplay="true" class="swiper" duration="1000" indicator-dots="true" interval="5000">
-            <block wx:for="{{goods.carImages}}" wx:for-item="image">
-                <swiper-item>
-                    <image class="slide-image" mode="scaleToFill" src="{{imageUrl}}{{image.imageId}}"></image>
+            <block wx:for="{{images}}" wx:for-item="image" wx:for-index="idx">
+                <swiper-item >
+                    <image mode="widthFix" src="{{imageUrl}}{{images[idx].imageId}}" data-idx="{{idx}}" bindload="wxParseImgLoad" style="width:{{windowWidth}}px;"></image>
                 </swiper-item>
             </block>
         </swiper>
-
-        <view>{{goods.band}}</view>
-        <view>￥{{goods.price}} w</view>
     </block>
+</template>
+
+<template name="goodsList_favor">
 </template>
 
 
