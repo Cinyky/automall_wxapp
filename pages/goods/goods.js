@@ -12,6 +12,9 @@ Page({
     good: null,
     goodsId: "",
     isshare: 0,
+    images: [],
+    imageUrl: goodsApi.imageUrl,
+    windowWidth: app.globalData.windowWidth
   },
 
   /**
@@ -34,7 +37,8 @@ Page({
     let good = app.globalData.goodsMap[tmpGoodsId];
     if (good) {
       this.setData({
-        good: good
+        good: good,
+        images: good.carImages
       });
     } else {
       this.getGoodsDetail();
@@ -107,7 +111,8 @@ Page({
         console.log(res);
         let data = res.data;
         _this.setData({
-            goods: data,
+            good: data,
+            images: good.carImages
         })
         
     };

@@ -1,10 +1,15 @@
 <!--pages/goods/goods.wxml-->
-<text>pages/goods/goods.wxml</text>
-<text>{{goodsId}}</text>
-<button open-type="share">分享</button>
+<!--template-->
+<import src="../../tpl/template-goods/template-goods.wxml"/>
+<!--/template-->
+
+<!-- <button open-type="share">分享</button> -->
 
 <view class='container'>
-  页面主要内容
+    <!--轮播图-->
+    <template data="{{images,windowWidth,imageUrl}}" is="swiper_detail"></template>
+
+
 </view>
 
 <!-- 回到首页(分享的时候显示) -->

@@ -1,5 +1,6 @@
 /* pages/goods/goods.wxss */
 /* 页面样式 */
+@import "../../tpl/template-goods/template-goods.wxss";
 
 /* 回到首页,固定定位,悬浮 */
 .d-back-home {
@@ -10,7 +11,7 @@
   bottom: 166rpx;
   z-index: 999999;
 }
-
+/* 打电话,固定定位,悬浮 */
 .d-phone {
   position: fixed;
   width: 96rpx;
