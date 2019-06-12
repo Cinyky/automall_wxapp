@@ -1,8 +1,5 @@
 /* pages/goods/goods.wxss */
 /* 页面样式 */
-.container {
-  
-}
 
 /* 回到首页,固定定位,悬浮 */
 .d-back-home {
@@ -11,5 +8,14 @@
   height: 96rpx;
   right: 30rpx;
   bottom: 166rpx;
-  z-index: 10000;
+  z-index: 999999;
+}
+
+.d-phone {
+  position: fixed;
+  width: 96rpx;
+  height: 96rpx;
+  right: 30rpx;
+  bottom: 66rpx;
+  z-index: 999999;
 }

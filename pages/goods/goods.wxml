@@ -9,3 +9,4 @@
 
 <!-- 回到首页(分享的时候显示) -->
 <image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='/assets/image/home_index.png' lazy-load></image>
+<image bindtap='phoneCall' class='d-phone' src='/assets/image/phone.png' lazy-load></image>

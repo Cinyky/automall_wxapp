@@ -124,5 +124,10 @@ Page({
     wx.reLaunch({
       url: '/pages/index/index'
     })
-  } 
+  },
+  phoneCall: ()=> {
+    wx.makePhoneCall({
+      phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+    })
+  }
 })

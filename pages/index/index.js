@@ -152,7 +152,7 @@ Page({
     goodsDetail(e) {
         let goodsId = e.currentTarget.dataset.goods;
         wx.navigateTo({
-            url: `/pages/goods/goods?goodsId=${goodsId}&ishare=1`
+            url: `/pages/goods/goods?goodsId=${goodsId}&isshare=1`
         });
     }
 
