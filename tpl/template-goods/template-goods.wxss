@@ -14,6 +14,22 @@ swiper-item image {
     overflow: hidden;
 }
 
+.rotate {
+    /* transform: rotate(45deg);  */
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: #FEF0E4;
+    opacity: 0.8;
+}
+
+.banner {
+  
+    transform:translateX(-50%);
+    color: #FF9900;
+}
+
+
 
 .m-scrollBox {
     position: relative;
@@ -46,7 +62,7 @@ swiper-item image {
 
 .item-title{line-height: 40rpx;font-size: 28rpx;height: 80rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;}
 .item-middle{height: 50rpx;line-height: 50rpx;font-size: 24rpx;}
-
+.item-price{color: #FF9900; font-size: 45rpx}
 .item-usenow{font-size: 24rpx;border:1px solid #DB384C;float: right;color: #DB384C;border-radius: 40rpx;padding: 0 15rpx;position: relative;top: -8rpx;line-height: 40rpx;}.item-desc{height: 50rpx;line-height: 50rpx;margin-top: 5rpx;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;}
 
 

@@ -12,7 +12,7 @@
                         <text class="regTime">上牌时间：{{goods.regTime}}</text>
                     </view>
                 </view>
-                <lable class="item-time">￥{{goods.price}} w</lable>   
+                <lable class="item-price">￥{{goods.price}} W</lable>   
             </view>
         </block>
     </scroll-view>
@@ -23,7 +23,10 @@
         <swiper autoplay="true" class="swiper" duration="1000" indicator-dots="true" interval="5000">
             <block wx:for="{{images}}" wx:for-item="image" wx:for-index="idx">
                 <swiper-item >
-                    <image mode="widthFix" src="{{imageUrl}}{{images[idx].imageId}}" data-idx="{{idx}}" bindload="wxParseImgLoad" style="width:{{windowWidth}}px;"></image>
+                    <view class='rotate'>
+                        <text class='banner'>{{image.title}}</text>
+                    </view>
+                    <image mode="widthFix" src="{{imageUrl}}{{image.imageId}}" data-idx="{{idx}}" bindload="wxParseImgLoad" style="width:{{windowWidth}}px;"></image>
                 </swiper-item>
             </block>
         </swiper>

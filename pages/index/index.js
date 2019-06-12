@@ -78,6 +78,7 @@ Page({
                     if (num >= EACH_NUM || totalNum >= TOTAL_NUM) {
                         break;
                     }
+                    image.title = goods.title;
                     tmpImages.push(image);
                     num--;
                     totalNum++;
