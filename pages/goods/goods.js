@@ -28,7 +28,7 @@ Page({
       this.setData({
         goodsId: tmpGoodsId
       });
-      if (options.isshare) {
+      if (1 == options.isshare) {
         this.setData({
           isshare: options.isshare
         });
