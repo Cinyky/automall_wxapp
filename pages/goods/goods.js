@@ -52,6 +52,7 @@ Page({
   },
 
   checkStatus: function() {
+    return;
     let _this = this;
     let good = _this.data.good;
     if (!good || good.status == 0) {

@@ -151,12 +151,8 @@ Page({
     },
     goodsDetail(e) {
         let goodsId = e.currentTarget.dataset.goods;
-        // wx.navigateTo({
-        //     url: `/pages/goods/goods?goodsId=${goodsId}&isshare=1`
-        // });
-
         wx.navigateTo({
-            url: `/pages/goods/goods?goodsId=1}&isshare=1`
+            url: `/pages/goods/goods?goodsId=${goodsId}&isshare=1`
         });
     }
 
