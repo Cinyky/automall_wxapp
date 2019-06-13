@@ -8,6 +8,52 @@
 <view class='container'>
     <!--轮播图-->
     <template data="{{current,good,windowWidth,imageUrl}}" is="swiper_detail"></template>
+
+
+      <!-- 底部菜单 -->
+  <view class="m-footer-btn">
+    <view class="m-footer-btn-list">
+      <view class="m-footer-btn-item" data-id="{{good.Id}}">
+        <view class="m-footer-btn-icon">
+          <contact-button size="27" type="default-dark" session-from="weapp">
+          </contact-button>
+          <label class="iconfont icon-mobilephone "></label>
+        </view>
+        <text>电话</text>
+      </view>
+      <view class="m-footer-btn-item" bindtap="PDCollection" data-id="{{good.Id}}">
+        <view class="m-footer-btn-icon">
+          <label class="iconfont {{isCollection?'icon-favoritesfilling':'icon-favorite'}}"
+                 style="{{isCollection?'color:#DB384C':''}}"></label>
+        </view>
+        <text>{{isCollection?'已收藏':'收藏'}}</text>
+      </view>
+      <navigator url="/pages/shoppingcart/shoppingcart" class="m-footer-btn-item">
+        <view class="m-footer-btn-icon">
+          <label class="iconfont icon-cart "></label>
+        </view>
+        <text>商家</text>
+      </navigator>
+    </view>
+    
+    <block wx:if="{{good.status === 0}}">
+      <view class="m-footer-btn-main m-footer-desable">
+        车已售出
+      </view>
+      <view class="m-footer-btn-main" bindtap="backHome">
+        查看其他车
+      </view>
+    </block>
+    <block wx:else>
+      <view  class="m-footer-btn-main" bindtap="phoneCall">
+        咨询底价
+      </view>
+      <view  class="m-footer-btn-main" bindtap="backHome">
+        查看其他车
+      </view>
+    
+    </block>
+  </view>
     
 
 </view>

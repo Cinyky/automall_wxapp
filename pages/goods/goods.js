@@ -43,11 +43,27 @@ Page({
         good: good,
         images: good.carImages
       });
+      this.checkStatus();
     } else {
       this.getGoodsDetail();
     }
-    
+
    
+  },
+
+  checkStatus: function() {
+    let _this = this;
+    let good = _this.data.good;
+    if (!good || good.status == 0) {
+      wx.showModal({
+        title: '提示',
+        content: '该商品已下架',
+        confirmText: '查看更多',
+        success: (modalRes) => {
+          _this.backHome();
+        }
+    })
+    }
   },
 
   /**
@@ -112,17 +128,18 @@ Page({
     let apiObj = goodsApi.goodsDetail;
     apiObj.url =  `${apiObj.url}/${_this.data.goodsId}`
     apiObj.success = function (res) {
-        console.log(res);
         let data = res.data;
-        data.createTimeStr = util.formatTimeSimple(new Date(data.createTime));
-        _this.setData({
-            good: data,
-            images: data.carImages
-        })
-        
+        if (data) {
+          data.createTimeStr = util.formatTimeSimple(new Date(data.createTime));
+          _this.setData({
+              good: data,
+              images: data.carImages
+          });
+        }
+        _this.checkStatus();
     };
     apiObj.fail = function (res) {
-        console.log(res);
+        this.checkStatus();
     }
     wx.request(apiObj);
   },
@@ -131,18 +148,25 @@ Page({
   * 回到首页(分享的时候)
   */
   backHome: function () {
-    wx.reLaunch({
-      url: '/pages/index/index'
-    })
+    if (this.data.isshare) {
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    } else {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }
+    
   },
-  phoneCall: ()=> {
+  phoneCall: function() {
     wx.makePhoneCall({
       phoneNumber: '1340000' //仅为示例，并非真实的电话号码
     })
   },
-  swiperChange: (e) => {
+  swiperChange: function(e) {
     this.setData({
       current: e.detail.current
     })
-  }
+  },
 })

@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "utils/iconfont.wxss";
 
 /*页面重置样式 start*/
 page {
