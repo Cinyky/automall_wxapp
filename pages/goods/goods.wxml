@@ -7,8 +7,8 @@
 
 <view class='container'>
     <!--轮播图-->
-    <template data="{{images,windowWidth,imageUrl}}" is="swiper_detail"></template>
-
+    <template data="{{current,good,windowWidth,imageUrl}}" is="swiper_detail"></template>
+    
 
 </view>
 

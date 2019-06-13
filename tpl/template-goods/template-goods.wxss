@@ -29,6 +29,27 @@ swiper-item image {
     color: #FF9900;
 }
 
+.createTime {
+    background-color: grey;
+    position: fixed;
+    left: 0;
+    z-index: 9999;
+}
+.createTime text {
+    color: white;
+}
+
+.imageSize {
+    background-color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.imageSize text {
+    color: white;
+}
+
 
 
 .m-scrollBox {

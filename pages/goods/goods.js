@@ -2,6 +2,7 @@
 const app = getApp()
 const cf = require("../../config.js");
 const goodsApi = require('../../api/goodsApi.js');
+const util = require('../../utils/util.js')
 
 Page({
 
@@ -14,7 +15,8 @@ Page({
     isshare: 0,
     images: [],
     imageUrl: goodsApi.imageUrl,
-    windowWidth: app.globalData.windowWidth
+    windowWidth: app.globalData.windowWidth,
+    current: 0
   },
 
   /**
@@ -36,6 +38,7 @@ Page({
     }
     let good = app.globalData.goodsMap[tmpGoodsId];
     if (good) {
+      good.createTimeStr = util.formatTimeSimple(new Date(good.createTime));
       this.setData({
         good: good,
         images: good.carImages
@@ -93,11 +96,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let path = `/pages/goods/goods?goodsId=${this.data.goodsId}&isshare=1`;
+    let data = this.data;
+    let path = `/pages/goods/goods?goodsId=${data.goodsId}&isshare=1`;
     console.log(path);
     return {
-      title: cf.config.appName,
-      path: path
+      title: `${cf.config.appName}-${data.good.title}`,
+      path: path,
     };
   },
   /**
@@ -110,6 +114,7 @@ Page({
     apiObj.success = function (res) {
         console.log(res);
         let data = res.data;
+        data.createTimeStr = util.formatTimeSimple(new Date(data.createTime));
         _this.setData({
             good: data,
             images: good.carImages
@@ -133,6 +138,11 @@ Page({
   phoneCall: ()=> {
     wx.makePhoneCall({
       phoneNumber: '1340000' //仅为示例，并非真实的电话号码
+    })
+  },
+  swiperChange: (e) => {
+    this.setData({
+      current: e.detail.current
     })
   }
 })
