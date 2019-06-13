@@ -9,54 +9,72 @@
     <!--轮播图-->
     <template data="{{current,good,windowWidth,imageUrl}}" is="swiper_detail"></template>
 
+   <scroll-view bindscrolltolower="scrollbottom" scroll-y="true" style="padding-bottom: 100rpx;">
+        <view >标题 {{good.title}}</view>
+        <view >描述 {{good.description}}</view>
+        <view >品牌 {{good.band}} 型号 {{good.mark}}</view>
+        <view >配置 {{good.config}}</view>
+        <view >上牌时间 {{good.regTime}}</view>
+        <view >保险时间 {{good.insuranceTime}}</view>
+        <view >验车时间 {{good.checkTime}}</view>
+        <view >过户次数 {{good.transferNum}}</view>
+        <view >汽车排量 {{good.outputVolume}}</view>
+        <view >过户次数 {{good.transfer_num}}</view>
+        <view >行驶里程 {{good.distance}}</view>
+        <view >价格 {{good.price}} W</view>
+        <view >汽车排放标准 {{good.outputStandard}}</view>
+    </scroll-view>
 
-      <!-- 底部菜单 -->
-  <view class="m-footer-btn">
-    <view class="m-footer-btn-list">
-      <view class="m-footer-btn-item" data-id="{{good.Id}}">
-        <view class="m-footer-btn-icon">
-          <contact-button size="27" type="default-dark" session-from="weapp">
-          </contact-button>
-          <label class="iconfont icon-mobilephone "></label>
+
+
+
+    <!-- 底部菜单 -->
+    <view class="m-footer-btn">
+        <view class="m-footer-btn-list">
+        <view class="m-footer-btn-item" data-id="{{good.Id}}">
+            <view class="m-footer-btn-icon">
+            <contact-button size="27" type="default-dark" session-from="weapp">
+            </contact-button>
+            <label class="iconfont icon-mobilephone "></label>
+            </view>
+            <text>电话</text>
         </view>
-        <text>电话</text>
-      </view>
-      <view class="m-footer-btn-item" bindtap="PDCollection" data-id="{{good.Id}}">
-        <view class="m-footer-btn-icon">
-          <label class="iconfont {{isCollection?'icon-favoritesfilling':'icon-favorite'}}"
-                 style="{{isCollection?'color:#DB384C':''}}"></label>
+        <view class="m-footer-btn-item" bindtap="PDCollection" data-id="{{good.Id}}">
+            <view class="m-footer-btn-icon">
+            <label class="iconfont {{isCollection?'icon-favoritesfilling':'icon-favorite'}}"
+                    style="{{isCollection?'color:#DB384C':''}}"></label>
+            </view>
+            <text>{{isCollection?'已收藏':'收藏'}}</text>
         </view>
-        <text>{{isCollection?'已收藏':'收藏'}}</text>
-      </view>
-      <navigator url="/pages/shoppingcart/shoppingcart" class="m-footer-btn-item">
-        <view class="m-footer-btn-icon">
-          <label class="iconfont icon-cart "></label>
+        <navigator url="/pages/shoppingcart/shoppingcart" class="m-footer-btn-item">
+            <view class="m-footer-btn-icon">
+            <label class="iconfont icon-cart "></label>
+            </view>
+            <text>商家</text>
+        </navigator>
         </view>
-        <text>商家</text>
-      </navigator>
+        
+        <block wx:if="{{good.status === 0}}">
+        <view class="m-footer-btn-main m-footer-desable">
+            车已售出
+        </view>
+        <view class="m-footer-btn-main" bindtap="backHome">
+            查看其他车
+        </view>
+        </block>
+        <block wx:else>
+        <view  class="m-footer-btn-main" bindtap="phoneCall">
+            咨询底价
+        </view>
+        <view  class="m-footer-btn-main" bindtap="backHome">
+            查看其他车
+        </view>
+        
+        </block>
     </view>
-    
-    <block wx:if="{{good.status === 0}}">
-      <view class="m-footer-btn-main m-footer-desable">
-        车已售出
-      </view>
-      <view class="m-footer-btn-main" bindtap="backHome">
-        查看其他车
-      </view>
-    </block>
-    <block wx:else>
-      <view  class="m-footer-btn-main" bindtap="phoneCall">
-        咨询底价
-      </view>
-      <view  class="m-footer-btn-main" bindtap="backHome">
-        查看其他车
-      </view>
-    
-    </block>
-  </view>
-    
+        
 
-</view>
+    </view>
 
 <!-- 回到首页(分享的时候显示) -->
 <image wx:if="{{isshare}}" bindtap='backHome' class='d-back-home' src='/assets/image/home_index.png' lazy-load></image>
