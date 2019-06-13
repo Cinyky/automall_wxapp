@@ -117,7 +117,7 @@ Page({
         data.createTimeStr = util.formatTimeSimple(new Date(data.createTime));
         _this.setData({
             good: data,
-            images: good.carImages
+            images: data.carImages
         })
         
     };
