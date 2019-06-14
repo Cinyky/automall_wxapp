@@ -54,6 +54,16 @@
     
 </template>
 
+
+<template name="image_detail">
+    <block wx:if="{{good.carImages.length > 0}}">
+        <block wx:for="{{good.carImages}}" wx:for-item="image" wx:for-index="idx">
+            <image mode="widthFix" src="{{imageUrl}}{{image.imageId}}" data-idx="{{idx}}" style="width:{{windowWidth}}px;"></image>
+        </block>
+    </block>
+    
+</template>
+
 <template name="goodsList_favor">
 </template>
 

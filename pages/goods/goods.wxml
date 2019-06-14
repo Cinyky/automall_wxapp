@@ -7,10 +7,17 @@
 
 <view class='container'>
     <!--轮播图-->
-    <template data="{{current,good,windowWidth,imageUrl}}" is="swiper_detail"></template>
+    <template data="{{good,windowWidth,imageUrl}}" is="swiper_detail"></template>
+    <text> \n </text>
+    <scroll-view bindscrolltolower="scrollbottom" scroll-y="true" style="padding-bottom: 100rpx;">
+        <view >{{good.title}}</view>
+        <view class="item-price">￥ {{good.price}} W</view>
 
-   <scroll-view bindscrolltolower="scrollbottom" scroll-y="true" style="padding-bottom: 100rpx;">
-        <view >标题 {{good.title}}</view>
+        <view class="title">
+            <label class="iconfont icon-gerenziliao "></label>
+            <label >基础信息</label>
+        </view>
+        
         <view >描述 {{good.description}}</view>
         <view >品牌 {{good.band}} 型号 {{good.mark}}</view>
         <view >配置 {{good.config}}</view>
@@ -20,9 +27,27 @@
         <view >过户次数 {{good.transferNum}}</view>
         <view >汽车排量 {{good.outputVolume}}</view>
         <view >过户次数 {{good.transfer_num}}</view>
-        <view >行驶里程 {{good.distance}}</view>
-        <view >价格 {{good.price}} W</view>
+        <view >行驶里程 {{good.distance}}</view> 
         <view >汽车排放标准 {{good.outputStandard}}</view>
+
+        <text> \n </text>
+        <view class="title">
+            <label class="iconfont icon-store "></label>
+            <label >卖家信息</label>
+        </view>
+        
+
+
+
+        <text> \n </text>
+        <view class="title">
+            <label class="iconfont icon-quanbudingdan "></label>
+            <label >车辆实拍</label>
+        </view>
+
+        <template data="{{good,windowWidth,imageUrl}}" is="image_detail"></template>
+
+
     </scroll-view>
 
 
@@ -48,7 +73,7 @@
         </view>
         <navigator url="/pages/shoppingcart/shoppingcart" class="m-footer-btn-item">
             <view class="m-footer-btn-icon">
-            <label class="iconfont icon-cart "></label>
+            <label class="iconfont icon-store "></label>
             </view>
             <text>商家</text>
         </navigator>

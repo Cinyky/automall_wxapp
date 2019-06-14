@@ -114,3 +114,7 @@
 }
 
 /*底部按钮 end*/
+
+.title {
+  border-bottom:2rpx solid #d9d9d9;
+}

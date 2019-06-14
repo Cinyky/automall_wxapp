@@ -16,7 +16,6 @@ Page({
     images: [],
     imageUrl: goodsApi.imageUrl,
     windowWidth: app.globalData.windowWidth,
-    current: 0
   },
 
   /**
@@ -164,10 +163,5 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '1340000' //仅为示例，并非真实的电话号码
     })
-  },
-  swiperChange: function(e) {
-    this.setData({
-      current: e.detail.current
-    })
-  },
+  }
 })
