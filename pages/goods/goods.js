@@ -115,9 +115,12 @@ Page({
     let data = this.data;
     let path = `/pages/goods/goods?goodsId=${data.goodsId}&isshare=1`;
     console.log(path);
+    let imageUrl = data.imageUrl+data.images[0].imageId;
+    console.log(imageUrl);
     return {
       title: `${cf.config.appName}-${data.good.title}`,
       path: path,
+      imageUrl: imageUrl
     };
   },
   /**
