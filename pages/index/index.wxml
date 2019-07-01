@@ -15,4 +15,9 @@
     <!--商品列表-->
     <template data="{{goodsList,imageUrl}}" is="goodsList_index"></template>
 
+
+</view>
+
+<view class="m-msk" wx:if="{{isIndexShowMag}}" bindtap="closeMsk">
+  <image mode="widthFix" src="/assets/image/yindao.png"></image>
 </view>

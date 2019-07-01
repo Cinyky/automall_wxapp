@@ -8,6 +8,7 @@ const EACH_NUM = 2;
 
 Page({
     data: {
+        isIndexShowMag: false,  
         motto: 'Hello World',
         userInfo: {},
         hasUserInfo: false,
@@ -28,9 +29,11 @@ Page({
   
 
     onLoad: function () {
+        let self = this; 
+
         // 获取用户信息
         if (app.globalData.userInfo) {
-            this.setData({
+            self.setData({
                 userInfo: app.globalData.userInfo,
                 hasUserInfo: true
             })
@@ -38,7 +41,7 @@ Page({
             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
             // 所以此处加入 callback 以防止这种情况
             app.userInfoReadyCallback = res => {
-                this.setData({
+                self.setData({
                     userInfo: res.userInfo,
                     hasUserInfo: true
                 })
@@ -48,7 +51,7 @@ Page({
             wx.getUserInfo({
                 success: res => {
                     app.globalData.userInfo = res.userInfo
-                    this.setData({
+                    self.setData({
                         userInfo: res.userInfo,
                         hasUserInfo: true
                     })
@@ -58,6 +61,13 @@ Page({
 
         this.getGoodsList();
         
+        let show = wx.getStorageSync("isIndexShowMag") || false;
+        if (!show) {
+            wx.setStorageSync("isIndexShowMag", true);
+            this.setData({
+                isIndexShowMag: true
+            });
+        }
 
     },
     getGoodsList() {
@@ -154,6 +164,11 @@ Page({
         wx.navigateTo({
             url: `/pages/goods/goods?goodsId=${goodsId}&isshare=0`
         });
-    }
+    },
+    closeMsk() {
+        this.setData({
+          isIndexShowMag: false
+        });
+      }
 
 })
