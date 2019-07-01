@@ -118,3 +118,32 @@
 .title {
   border-bottom:2rpx solid #d9d9d9;
 }
+
+.menu-01{z-index:999}
+
+.menuicon{height: 95rpx; width: 95rpx; line-height: 50rpx; text-align: center; font-style:normal; -webkit-font-smoothing: antialiased;}
+.menu-container{display: flex; flex-direction: row; justify-content:space-around;clear:both;}
+.menu-item{
+  text-align: center; 
+  padding: 25rpx 0;
+}
+.menu-content{
+  display: block; 
+  font-size: 28rpx; 
+  color: #5d5d5d; 
+  margin-top: 20rpx;
+  height: 95rpx;
+  width: 95rpx; 
+  line-height: 50rpx;
+}
+.menu-text{
+  display: block; 
+  font-size: 20rpx; 
+  color: #AAAAAA; 
+  margin-top: 20rpx;
+  height: 95rpx;
+  width: 95rpx; 
+  line-height: 50rpx;
+}
+.menu-item .menuicon{margin: 0 auto}
+.menu-01 .fn-item .menuicon{color: #fff; font-size: 50rpx;}

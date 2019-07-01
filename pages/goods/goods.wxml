@@ -14,25 +14,81 @@
         <view class="item-price">￥ {{good.price}} W</view>
 
         <view class="title">
-            <label class="iconfont icon-gerenziliao "></label>
+            <label class="iconfont icon-gerenziliao" style="font-size:50rpx;"></label>
             <label >基础信息</label>
         </view>
+
+
+        <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
+            <block>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.band ? good.band : '--'}}/{{good.mark ? good.mark : '--'}}</text>
+                    <text class="menu-text">品牌/型号</text>
+                </view>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.distance ? good.distance/10000 : '--'}} 万KM</text>
+                    <text class="menu-text">行驶里程</text>
+                </view>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.transferNum ? good.transferNum : '--'}}</text>
+                    <text class="menu-text">过户次数</text>
+                </view>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.outputVolume ? good.outputVolume : '--'}}</text>
+                    <text class="menu-text">汽车排量</text>
+                </view>
+
+              
+               
+            </block>
+        </view>
+
+         <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
+            <block>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.regTime ? good.regTime : '--'}}</text>
+                    <text class="menu-text">上牌时间</text>
+                </view>
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.insuranceTime ? good.insuranceTime : '--'}}</text>
+                    <text class="menu-text">保险时间</text>
+                </view>
+
+
+                <view class="menu-item">
+                    <text class="menu-content">{{good.checkTime ? good.checkTime : '--'}}</text>
+                    <text class="menu-text">验车时间</text>
+                </view>
+
+                  <view class="menu-item">
+                    <text class="menu-content">{{good.outputStandard ? good.outputStandard : '--'}}</text>
+                    <text class="menu-text">尾气标准</text>
+                </view>
+
+            </block>
+        </view>
         
-        <view >描述 {{good.description}}</view>
+        <!-- <view >描述 {{good.description}}</view>
         <view >品牌 {{good.band}} 型号 {{good.mark}}</view>
         <view >配置 {{good.config}}</view>
         <view >上牌时间 {{good.regTime}}</view>
         <view >保险时间 {{good.insuranceTime}}</view>
         <view >验车时间 {{good.checkTime}}</view>
+        <view >汽车排放标准 {{good.outputStandard}}</view>
         <view >过户次数 {{good.transferNum}}</view>
         <view >汽车排量 {{good.outputVolume}}</view>
-        <view >过户次数 {{good.transfer_num}}</view>
         <view >行驶里程 {{good.distance}}</view> 
-        <view >汽车排放标准 {{good.outputStandard}}</view>
+ -->
 
         <text> \n </text>
         <view class="title">
-            <label class="iconfont icon-store "></label>
+            <label class="iconfont icon-store" style="font-size:50rpx;"></label>
             <label >卖家信息</label>
         </view>
         
@@ -41,7 +97,7 @@
 
         <text> \n </text>
         <view class="title">
-            <label class="iconfont icon-quanbudingdan "></label>
+            <label class="iconfont icon-quanbudingdan" style="font-size:50rpx;"></label>
             <label >车辆实拍</label>
         </view>
 
