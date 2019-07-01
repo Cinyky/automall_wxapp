@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/goods/goods"
+    "pages/goods/goods",
+    "pages/personal/personal",
+    "pages/shop/shop"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,13 +23,13 @@
         "iconPath": "assets/tabBar/icon_index.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/shop/shop",
         "text": "商家",
         "selectedIconPath": "assets/tabBar/icon_shop_selected.png",
         "iconPath": "assets/tabBar/icon_shop.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/personal/personal",
         "text": "个人中心",
         "selectedIconPath": "assets/tabBar/icon_personal_selected.png",
         "iconPath": "assets/tabBar/icon_personal.png"

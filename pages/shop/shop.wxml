@@ -1,0 +1,18 @@
+<!--pages/shop/shop.wxml-->
+<text>pages/shop/shop.wxml</text>
+
+
+ <map
+            bindtap="map"
+            covers="{{covers}}"
+            enable-scroll=false
+            enable-zoom=false
+            id="myMap"
+            latitude="{{latitude}}"
+            longitude="{{longitude}}"
+            markers="{{markers}}"
+            show-compass
+            show-location
+            style="width: 100%; height: 300px;"
+    />
+<button bindtap='map' type="primary">导航</button>

@@ -127,7 +127,7 @@
             </view>
             <text>{{isCollection?'已收藏':'收藏'}}</text>
         </view>
-        <navigator url="/pages/shoppingcart/shoppingcart" class="m-footer-btn-item">
+        <navigator url="/pages/shop/shop" open-type='switchTab' class="m-footer-btn-item">
             <view class="m-footer-btn-icon">
             <label class="iconfont icon-store "></label>
             </view>
