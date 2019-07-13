@@ -11,9 +11,17 @@ Page({
         btnshowModal: 1,
         images: [],
         imageUrl: goodsApi.imageUrl,
+        userInfo: null
     },
     
     onLoad: function(t) {
+        let userInfo = app.globalData.userInfo;
+        userInfo.wallet = 999.00;
+        userInfo.integral = 8888.00;
+        userInfo.coupons = 12346.00;
+        this.setData({
+            userInfo: app.globalData.userInfo
+        });
         
     },
     getGoods: function() {

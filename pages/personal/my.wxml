@@ -1,14 +1,18 @@
 <view class="page">
     <view class="headhd">
         <view class="head">
-            <view class="hbd">
+            <view class="hbd" wx:if="{{userInfo !== null}}">
                 <view class="hbd__hd">
-                    <image class="himg" src="{{userInfo.img}}" style="border-radius:50%;"></image>
+                    <image class="himg" src="{{userInfo.avatarUrl}}" style="border-radius:50%;"></image>
                 </view>
                 <view class="hbd__bd">
                     <view class="hbd__bd1 gobyndsingle">
-                        <view wx:if="{{userInfo.name==''}}">{{userInfo.nickname}}</view>
-                        <view wx:else>{{userInfo.name}}</view>
+                        <view wx:if="{{userInfo.nickName}}">
+                            {{userInfo.nickName}}
+                        </view>
+                        <view wx:else>
+                            {{userInfo.name}}
+                        </view>
                         <image bindtap="tzbj" src="/assets/image/mybj.png"></image>
                     </view>
                     <view class="hydj">
@@ -28,8 +32,9 @@
             </view>
             <view class="bd1">
                 <navigator class="bd1-view" style="border-right:1rpx solid #d9d9d9" url="wdzd">
-                    <view>{{userInfo.wallet}}
-            </view>
+                    <view>
+                        {{userInfo.wallet}}
+                    </view>
                     <text>余额</text>
                 </navigator>
                 <navigator class="bd1-view" style="border-right:1rpx solid #d9d9d9" url="jfsc/integralinfo">
@@ -37,7 +42,7 @@
                     <text>积分</text>
                 </navigator>
                 <navigator class="bd1-view" url="wdkq">
-                    <view>{{MyCoupons}}
+                    <view>{{userInfo.coupons}}
           </view>
                     <text>优惠券</text>
                 </navigator>
