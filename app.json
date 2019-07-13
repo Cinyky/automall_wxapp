@@ -4,6 +4,7 @@
     "pages/logs/logs",
     "pages/goods/goods",
     "pages/personal/personal",
+    "pages/personal/my",
     "pages/shop/shop"
   ],
   "window": {
@@ -29,7 +30,7 @@
         "iconPath": "assets/tabBar/icon_shop.png"
       },
       {
-        "pagePath": "pages/personal/personal",
+        "pagePath": "pages/personal/my",
         "text": "个人中心",
         "selectedIconPath": "assets/tabBar/icon_personal_selected.png",
         "iconPath": "assets/tabBar/icon_personal.png"

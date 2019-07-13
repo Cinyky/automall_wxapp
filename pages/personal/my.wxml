@@ -1,0 +1,173 @@
+<view class="page">
+    <view class="headhd" wx:if="{{userInfo!=null}}">
+        <view class="head">
+            <view class="hbd">
+                <view class="hbd__hd">
+                    <image class="himg" src="{{userInfo.img}}" style="border-radius:50%;"></image>
+                </view>
+                <view class="hbd__bd">
+                    <view class="hbd__bd1 gobyndsingle">
+                        <view wx:if="{{userInfo.name==''}}">{{userInfo.nickname}}</view>
+                        <view wx:else>{{userInfo.name}}</view>
+                        <image bindtap="tzbj" src="/assets/image/mybj.png" wx:if="{{userInfo.grade!='0'}}"></image>
+                    </view>
+                    <view class="hydj" wx:if="{{userInfo.grade!='0'}}">
+                        <image src="/assets/image/vipfill.png"></image>
+                        <text>{{userInfo.level_name}}</text>
+                    </view>
+                </view>
+                <navigator class="hbd__ft" url="hykxq" wx:if="{{userInfo.grade!='0'}}">
+                    <image class="img" src="/assets/image/myhyk.png"></image>
+                </navigator>
+            </view>
+            <view class="hykdq" wx:if="{{xtxx.vip_qx=='1'&&userInfo.grade!='0'}}">
+                <view wx:if="{{isdq=='2'}}">会员卡到期时间：</view>
+                <view class="viptime" wx:if="{{isdq=='2'}}">{{userInfo.vip_time}}</view>
+                <view wx:if="{{isdq=='1'}}">会员卡已过期</view>
+                <navigator class="ljxf" url="../index/wyxf" wx:if="{{isdq=='1'}}">立即续费</navigator>
+            </view>
+            <view class="bd1">
+                <navigator class="bd1-view" style="border-right:1rpx solid #d9d9d9" url="wdzd">
+                    <view>{{userInfo.wallet}}
+            </view>
+                    <text>余额</text>
+                </navigator>
+                <navigator class="bd1-view" style="border-right:1rpx solid #d9d9d9" url="jfsc/integralinfo">
+                    <view>{{userInfo.integral}}</view>
+                    <text>积分</text>
+                </navigator>
+                <navigator class="bd1-view" url="wdkq">
+                    <view>{{MyCoupons}}
+          </view>
+                    <text>优惠券</text>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view class="banner" wx:if="{{lblist.length!=0}}">
+        <view class="swiper-container">
+            <swiper autoplay="true" circular="true" class="swiper" duration="500" indicatorDots="true" interval="5000">
+                <swiper-item bindtap="tzweb" data-index="{{index}}" wx:for="{{lblist}}" wx:key="unique">
+                    <image class="img" src="{{url}}{{item.logo}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="wkk" wx:if="{{userInfo.grade=='0'}}">
+        <image class="wkkbgimg" mode="aspectFill" src="/assets/image/bgimg.png"></image>
+        <view class="flex4">
+            <image src="{{url}}{{xtxx.bq_logo}}"></image>
+            <view>{{xtxx.link_name}}</view>
+        </view>
+        <view bindtap="ljkk">
+            <view class="ljkk">立即开卡</view>
+        </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;" wx:if="{{issc}}">
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="wddd/order">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/yeqb.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">我的订单</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">查看全部订单</view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="../gwc/xzdz">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/mydz.png" style="margin-right: 20rpx;vertical-align: middle;width:32rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">收货地址</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;" wx:if="{{userInfo.grade!='0'}}">
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="wdck/wdck" wx:if="{{xtxx.is_ck=='1'}}">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/ddze.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">我的次卡</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="wdkq">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/glyhq.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">我的卡券</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="wdzd">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/zd.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">我的账单</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="jfsc/integral" wx:if="{{xtxx.is_jf=='1'}}">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/cost.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">积分商城</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+    <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;">
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="bzzx">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/bzzx.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">帮助中心</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view bindtap="xszz" class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/gzwm.png" style="margin-right: 15rpx;vertical-align: middle;width:45rpx; height: 45rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">关注我们</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="details">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/kefu.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">关于我们</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="kfzx">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/kfzx.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">客服中心</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <navigator class="weui-cell weui-cell_access" hoverClass="weui-cell_active" url="glrk/login">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/glrk.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">管理入口</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+    <view class="copyright">
+        <view bindtap="tzxcx" class="copyright_logo" data-appid="{{xtxx.tz_appid}}">
+            <image class="copyright_img" mode="aspectFill" src="{{url}}{{xtxx.bq_logo}}"></image>
+            <view class="copyright_text">{{xtxx.bq_name}}</view>
+        </view>
+        <view class="copyright_txt">{{xtxx.support}}</view>
+    </view>
+</view>
+<view bindtap="yczz" class="drawer_screen" wx:if="{{showModal}}"></view>
+<view class="drawer_box" wx:if="{{showModal}}">
+    <view class="drawer_title">保存二维码添加微信</view>
+    <image bindtap="previewImage" data-img="{{url}}{{xtxx.follow}}" src="{{url}}{{xtxx.follow}}"></image>
+    <view class="drawer_title1">点击图片预览保存图片</view>
+    <view bindtap="yczz" class="wxbtn_ok">确定</view>
+</view>
+<view bindtap="yczz" class="sq_screen" wx:if="{{btnshowModal}}"></view>
+<view class="sq_box" wx:if="{{btnshowModal}}">
+    <view class="sq_title">需要您的授权</view>
+    <view class="sq_title1">为了提供更好的服务</view>
+    <view class="sq_title1">请在稍后的提示框中点击“允许”</view>
+    <image src="/assets/image/sqimg.png"></image>
+    <button bindgetuserinfo="bindGetUserInfo" bindtap="yczz" class="btn_ok" openType="getUserInfo" style="color:#fff;background:{{xtxx.link_color}}">我知道了</button>
+</view>
