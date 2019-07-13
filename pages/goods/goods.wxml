@@ -47,7 +47,7 @@
             </block>
         </view>
 
-         <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
+        <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
             <block>
 
                 <view class="menu-item">
@@ -74,22 +74,14 @@
             </block>
         </view>
         
-        <!-- <view >描述 {{good.description}}</view>
-        <view >品牌 {{good.band}} 型号 {{good.mark}}</view>
-        <view >配置 {{good.config}}</view>
-        <view >上牌时间 {{good.regTime}}</view>
-        <view >保险时间 {{good.insuranceTime}}</view>
-        <view >验车时间 {{good.checkTime}}</view>
-        <view >汽车排放标准 {{good.outputStandard}}</view>
-        <view >过户次数 {{good.transferNum}}</view>
-        <view >汽车排量 {{good.outputVolume}}</view>
-        <view >行驶里程 {{good.distance}}</view> 
- -->
-
         <text> \n </text>
         <view class="title">
             <label class="iconfont icon-store" style="font-size:50rpx;"></label>
             <label >卖家信息</label>
+        </view>
+
+        <view class="">
+            {{good.description}}
         </view>
         
 
