@@ -17,61 +17,60 @@
             <label class="iconfont icon-gerenziliao" style="font-size:50rpx;"></label>
             <label >基础信息</label>
         </view>
-
-
-        <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
-            <block>
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.band ? good.band : '--'}}/{{good.mark ? good.mark : '--'}}</text>
-                    <text class="menu-text">品牌/型号</text>
+        <view class="bd1">
+            <view class="bd1-view" style="border-right:1rpx solid #d9d9d9">
+                <view>
+                    {{good.band ? good.band : '--'}}
                 </view>
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.distance ? good.distance/10000 : '--'}} 万KM</text>
-                    <text class="menu-text">行驶里程</text>
+                <text>品牌/型号</text>
+            </view>
+            <view class="bd1-view" style="border-right:1rpx solid #d9d9d9">
+                <view>
+                    {{good.distance ? good.distance/10000 : '--'}} 万KM
                 </view>
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.transferNum ? good.transferNum : '--'}}</text>
-                    <text class="menu-text">过户次数</text>
+                <text>行驶里程</text>
+            </view>
+            <view class="bd1-view">
+                <view>
+                    {{good.transferNum ? good.transferNum : '--'}}
                 </view>
+                <text>过户次数</text>
+            </view>
 
-                <view class="menu-item">
-                    <text class="menu-content">{{good.outputVolume ? good.outputVolume : '--'}}</text>
-                    <text class="menu-text">汽车排量</text>
+            <view class="bd1-view">
+                <view>
+                    {{good.outputVolume ? good.outputVolume : '--'}}
                 </view>
-
-              
-               
-            </block>
+                <text>汽车排量</text>
+            </view>
         </view>
 
-        <view class="menu-container menu-01" style='padding: 0rpx 0rpx; margin-top: 0rpx;'>
-            <block>
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.regTime ? good.regTime : '--'}}</text>
-                    <text class="menu-text">上牌时间</text>
+        <view class="bd1">
+            <view class="bd1-view" style="border-right:1rpx solid #d9d9d9">
+                <view>
+                    {{good.regTime ? good.regTime : '--'}}
                 </view>
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.insuranceTime ? good.insuranceTime : '--'}}</text>
-                    <text class="menu-text">保险时间</text>
+                <text>上牌时间</text>
+            </view>
+            <view class="bd1-view" style="border-right:1rpx solid #d9d9d9">
+                <view>
+                    {{good.insuranceTime ? good.insuranceTime : '--'}}
                 </view>
-
-
-                <view class="menu-item">
-                    <text class="menu-content">{{good.checkTime ? good.checkTime : '--'}}</text>
-                    <text class="menu-text">验车时间</text>
+                <text>保险时间</text>
+            </view>
+            <view class="bd1-view">
+                <view>
+                    {{good.checkTime ? good.checkTime : '--'}}
                 </view>
+                <text>验车时间</text>
+            </view>
 
-                  <view class="menu-item">
-                    <text class="menu-content">{{good.outputStandard ? good.outputStandard : '--'}}</text>
-                    <text class="menu-text">尾气标准</text>
+            <view class="bd1-view">
+                <view>
+                    {{good.outputStandard ? good.outputStandard : '--'}}
                 </view>
-
-            </block>
+                <text>尾气标准</text>
+            </view>
         </view>
         
         <text> \n </text>

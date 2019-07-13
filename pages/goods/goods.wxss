@@ -147,3 +147,34 @@
 }
 .menu-item .menuicon{margin: 0 auto}
 .menu-01 .fn-item .menuicon{color: #fff; font-size: 50rpx;}
+
+
+.bd1 {
+  box-sizing: border-box;
+  position: relative;
+  height: 160rpx;
+  width: 100%;
+  background: #fff;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+.bd1-view {
+  width: 25%;
+  text-align: center;
+}
+
+.bd1-view text {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.bd1-view view {
+  font-size: 30rpx;
+}
