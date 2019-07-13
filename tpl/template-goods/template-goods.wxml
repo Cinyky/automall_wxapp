@@ -38,7 +38,7 @@
         <swiper  autoplay="true" class="swiper" duration="1000" indicator-dots="true" interval="5000">
             <block wx:for="{{good.carImages}}" wx:key="*this" wx:for-item="image" wx:for-index="idx">
                 <swiper-item >
-                    <image mode="widthFix" src="{{imageUrl}}{{image.imageId}}" data-idx="{{idx}}" style="width:{{windowWidth}}px;"></image>
+                    <image  bindtap="previewImage" mode="widthFix" src="{{imageUrl}}{{image.imageId}}" data-idx="{{idx}}" style="width:{{windowWidth}}px;"></image>
                     <view class='imageSize'>
                         <text>{{idx+1}}/{{good.carImages.length}}</text>
                     </view>

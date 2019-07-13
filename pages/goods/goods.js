@@ -166,5 +166,14 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '1340000' //仅为示例，并非真实的电话号码
     })
-  }
+  },
+  previewImage: function() {
+    let self = this;
+    let data = this.data.images.map((image) => {
+      return self.data.imageUrl + image.imageId;
+    });
+    wx.previewImage({
+        urls: data
+    });
+},
 })
