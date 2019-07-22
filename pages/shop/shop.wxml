@@ -1,5 +1,10 @@
 <!--pages/shop/shop.wxml-->
 
+<view class="banner">
+    <image src="/assets/image/shop_bg.png" style="width: {{imagewidth}}px; height: {{imageheight}}px;" bindload="imageLoad"/>
+    <text class="banner-text">{{shop.name}}</text>
+</view>
+
 
  <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;">
         <view class="weui-cell weui-cell_access" >

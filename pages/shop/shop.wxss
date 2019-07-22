@@ -1,1 +1,14 @@
 /* pages/shop/shop.wxss */
+.banner {
+    width:100%;
+}
+
+.banner-text {
+    font-size: 45px;
+    position: absolute;
+    left: 15%;
+    top: 7%;
+    z-index: 9999;
+    background-color: #FFFFFF;
+    color: #45D9C8;
+}

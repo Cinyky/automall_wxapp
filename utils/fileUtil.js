@@ -122,8 +122,34 @@ const wxAutoImageCal = (originalWidth, originalHeight ) => {
     return results;
   }
 
+  const imageUtil = function (e, scale) {
+    if (!scale) {
+        scale = 1;
+    }
+    let imageSize = {};
+    let originalWidth = e.detail.width; // 图片原始宽
+    let originalHeight = e.detail.height; // 图片原始高
+    let originalScale = originalHeight/originalWidth; //图片高宽比
+    //获取屏幕宽高
+    let res = wx.getSystemInfoSync();
+    let windowWidth = res.windowWidth;
+    let windowHeight = res.windowHeight;
+    let windowscale = windowHeight/windowWidth;//屏幕高宽比
+    if (originalScale < windowscale) { // 图片高宽比小于屏幕高宽比
+      //图片缩放后的宽为屏幕宽
+      imageSize.imageWidth = windowWidth * scale;
+      imageSize.imageHeight = (windowWidth * originalHeight) / originalWidth;
+    } else { // 图片高宽比大于屏幕高宽比
+      //图片缩放后的高为屏幕高
+      imageSize.imageHeight = windowHeight * scale;
+      imageSize.imageWidth = (windowHeight * originalWidth) / originalHeight;
+    }
+    return imageSize;
+  }
+
 module.exports = {
     compress: compress,
     saveFile: saveFile,
-    wxParseImgLoad: wxParseImgLoad
+    wxParseImgLoad: wxParseImgLoad,
+    imageUtil: imageUtil
 }

@@ -1,22 +1,14 @@
 // pages/shop/shop.js
 
 const shopApi = require('../../api/shopApi.js');
+const fileUtil = require('../../utils/fileUtil.js')
 Page({
     data: {
 
-        latitude: 23.099994,
-        longitude: 113.324520,
         markers: [],
-        covers: [{
-            latitude: 23.099994,
-            longitude: 113.344520,
-            iconPath: '/assets/image/location.png'
-        }, {
-            latitude: 23.099994,
-            longitude: 113.304520,
-            iconPath: '/assets/image/location.png'
-        }],
-        shop: null
+        shop: null,
+        imagewidth: 0,
+        imageheight : 0,
     },
     onLoad: function () {
         let self = this;
@@ -62,4 +54,14 @@ Page({
             }
         });
     },
+
+    imageLoad: function (e) {
+        let imageSize = fileUtil.imageUtil(e,1.0);
+        this.setData({
+          imagewidth: imageSize.imageWidth,
+          imageheight: imageSize.imageHeight
+        })
+      },
+      
+    
 })
