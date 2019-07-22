@@ -1,20 +1,24 @@
 <!--pages/shop/shop.wxml-->
-<text>{{shop.description}}</text>
-<text>{{shop.location}}</text>
-<text>{{shop.wechat}}</text>
-<text>{{shop.tel}}</text>
-<text>{{shop.name}}</text>
+
+
+
+
+<view>{{shop.description}}</view>
+<view>{{shop.location}}</view>
+<view>{{shop.wechat}}</view>
+<view>{{shop.tel}}</view>
+<view>{{shop.name}}</view>
 
 
 <map
-            bindtap="map"
-            markers="{{markers}}"
-            enable-scroll=false
-            enable-zoom=false
-            id="myMap"
-            latitude="{{shop.latitude}}"
-            longitude="{{shop.longitude}}"
-            show-compass
-            show-location
-            style="width: 100%; height: 300px;"
+    bindtap="map"
+    markers="{{markers}}"
+    enable-scroll=false
+    enable-zoom=false
+    id="myMap"
+    latitude="{{shop.latitude}}"
+    longitude="{{shop.longitude}}"
+    show-compass
+    show-location
+    style="width: 100%; height: 300px;"
 />
