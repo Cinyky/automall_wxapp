@@ -10,6 +10,34 @@
 <view>{{shop.name}}</view>
 
 
+ <view class="weui-cells weui-cells_after-title" style="margin-bottom: 30rpx;">
+        <view class="weui-cell weui-cell_access" >
+            <view class="weui-cell__hd">
+                <image src="/assets/image/yeqb.png" style="margin-right: 20rpx;vertical-align: middle;width:40rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">电话</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{shop.tel}}</view>
+        </view>
+
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/mydz.png" style="margin-right: 20rpx;vertical-align: middle;width:32rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">微信</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{shop.wechat}}</view>
+        </view>
+
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image src="/assets/image/mydz.png" style="margin-right: 20rpx;vertical-align: middle;width:32rpx; height: 40rpx;"></image>
+            </view>
+            <view class="weui-cell__bd">地址</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{shop.location}}</view>
+        </view>
+
+         
+</view>
+
 <map
     bindtap="map"
     markers="{{markers}}"
