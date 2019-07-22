@@ -52,11 +52,11 @@ Page({
         wx.getLocation({
             type: 'gcj02', //返回可以用于wx.openLocation的经纬度
             success: function (res) {
-                var latitude = res.latitude
-                var longitude = res.longitude
+                let latitude = res.latitude
+                let longitude = res.longitude
                 wx.openLocation({
-                    latitude: self.data.latitude,
-                    longitude: self.data.longitude,
+                    latitude: self.data.shop.latitude,
+                    longitude: self.data.shop.longitude,
                     scale: 28
                 })
             }
