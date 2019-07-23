@@ -1,4 +1,15 @@
 <!--pages/shop/shop.wxml-->
+<scroll-view class="notice">
+  <view class="scrolltxt">
+    <view class="marquee_box">
+      <view class="marquee_text" style="transform: translateX(-{{marqueeDistance}}px)">
+        <text>{{shop.description}}</text>
+        <text style="margin-right:{{marquee_margin}}px;"></text>
+        <text style="margin-right:{{marquee_margin}}px;">{{shop.description}}</text>        
+      </view>
+    </view>
+  </view>
+</scroll-view>
 
 <view class="banner">
     <image src="/assets/image/shop_bg.png" style="width: {{imagewidth}}px; height: {{imageheight}}px;" bindload="imageLoad"/>
@@ -31,8 +42,9 @@
             <view class="weui-cell__ft weui-cell__ft_in-access">{{shop.location}}</view>
         </view>
 
-         
 </view>
+
+
 
 <map
     bindtap="map"
