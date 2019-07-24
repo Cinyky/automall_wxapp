@@ -169,6 +169,16 @@ Page({
         this.setData({
           isIndexShowMag: false
         });
-      }
+    },
+     /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+        let path = `/pages/index/index?isshare=1`;
+        console.log(path);
+        return {
+        path: path,
+        };
+    },
 
 })
