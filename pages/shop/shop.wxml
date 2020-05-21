@@ -49,8 +49,6 @@
 <map
     bindtap="map"
     markers="{{markers}}"
-    enable-scroll=false
-    enable-zoom=false
     id="myMap"
     latitude="{{shop.latitude}}"
     longitude="{{shop.longitude}}"

@@ -8,8 +8,6 @@
     <map
             bindtap="map"
             covers="{{covers}}"
-            enable-scroll=false
-            enable-zoom=false
             id="myMap"
             latitude="{{latitude}}"
             longitude="{{longitude}}"
